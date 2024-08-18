@@ -75,7 +75,7 @@ public class FileStorage {
 
         File file = new File(directory, fileName);
         try (FileOutputStream out = new FileOutputStream(file)) {
-            resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 80, out);
+            resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 30, out);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
