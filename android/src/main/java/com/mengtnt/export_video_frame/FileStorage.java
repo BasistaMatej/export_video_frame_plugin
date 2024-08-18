@@ -44,7 +44,6 @@ public class FileStorage {
         // Assuming the storage directory is a public directory for pictures
         this.external = true;
         this.directoryName = "ExportImage";
-        Log.d("ExportVideoPlugin", "File Storage Directory: " + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
         this.directory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), this.directoryName);
         if (!this.directory.exists()) {
             this.directory.mkdirs();
@@ -75,8 +74,6 @@ public class FileStorage {
         Bitmap resizedBitmap = resizeBitmap(bitmap, 640, 640);
 
         File file = new File(directory, fileName);
-        Log.d("ExportVideoPlugin", "FileStorage directory: "+directory);
-        Log.d("ExportVideoPlugin", "FileStorage fileName: "+fileName);
         try (FileOutputStream out = new FileOutputStream(file)) {
             resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 80, out);
             return true;

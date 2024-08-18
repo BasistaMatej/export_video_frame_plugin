@@ -24,7 +24,6 @@ public class ExportManager {
         long timeUs = milli * 1000;
 
         Bitmap bitmap = retriever.getFrameAtTime(timeUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
-        Log.d("ExportVideoPlugin","Export Manager bitmap frame");
 
         if (bitmap != null) {
             // Rotate the image by radian
@@ -34,9 +33,6 @@ public class ExportManager {
             String name = timeUs + String.format("%.4f", radian);
             FileStorage fileStorage = FileStorage.getInstance();
             String outputPath = fileStorage.getFilePath(name);
-
-            Log.d("ExportVideoPlugin","OoutputPath: " + outputPath);
-
 
             if (fileStorage.createFile(name, rotatedBitmap)) {
                 return outputPath;
