@@ -19,7 +19,7 @@ dependencies:
   export_video_frame:
     git:
       url: git@github.com:BasistaMatej/export_video_frame_plugin.git
-      ref: master
+      ref: main
 
 ```
 
