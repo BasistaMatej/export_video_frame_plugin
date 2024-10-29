@@ -37,8 +37,8 @@ class ExportManager {
         
         let imageGenrator = AVAssetImageGenerator(asset: asset)
         imageGenrator.appliesPreferredTrackTransform = true
-        imageGenrator.requestedTimeToleranceAfter = .zero
-        imageGenrator.requestedTimeToleranceBefore = .zero
+        imageGenrator.requestedTimeToleranceAfter = CMTime(seconds: 0.1, preferredTimescale: timeScale)
+        imageGenrator.requestedTimeToleranceBefore = CMTime(seconds: 0.2, preferredTimescale: timeScale)
         var actualTime: CMTime = .zero
         if let imageRef = try? imageGenrator.copyCGImage(at: time, actualTime: &actualTime),
             let img = UIImage(cgImage: imageRef).imageByRotate(radius: -radian),
